@@ -20,7 +20,7 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;overscroll-behavior-y:none}
 body{background:#d9d9d7;font-family:var(--sans);color:var(--ink)}
-.app{max-width:480px;margin:0 auto;background:var(--white);min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;position:relative;box-shadow:0 0 30px rgba(0,0,0,.15)}
+.app{max-width:480px;margin:0 auto;background:var(--white);min-height:calc(100vh + 90px);min-height:calc(100dvh + 90px);display:flex;flex-direction:column;position:relative;box-shadow:0 0 30px rgba(0,0,0,.15)}
 button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
 img{display:block;max-width:100%}
 :focus-visible{outline:2px solid var(--silver-d);outline-offset:2px}
@@ -324,7 +324,7 @@ let shown = POR_PAGINA;
 ['#logoH','#logoF'].forEach(s => { const i=$(s); i.src=LOGO; if(LOGO_INVERT) i.classList.add('logo-inv'); });
 $('#yr').textContent = new Date().getFullYear();
 document.documentElement.style.setProperty('--fit', FOTO_AJUSTE);
-addEventListener('scroll', () => $('#hd').classList.toggle('sm', scrollY > 30), {passive:true});
+addEventListener('scroll', () => { const h = $('#hd'); if (scrollY > 80) h.classList.add('sm'); else if (scrollY < 20) h.classList.remove('sm'); }, {passive:true});
 
 const CACHE_KEY = 'kg_catalogo_v1';
 const CACHE_MAX_AGE = 6 * 60 * 60 * 1000; // 6 horas
