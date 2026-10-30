@@ -370,7 +370,7 @@ function buildHero() {
   hn = picks.length;
   $('#heroT').innerHTML = picks.map((p, i) => `
     <div class="slide"><div class="ph"><img src="${esc(IMG(p.fotos[0], 800))}" data-o="${esc(p.fotos[0])}" onerror="${FB}" alt="${esc(p.producto)}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}></div>
-    <div class="ov"><h2>${esc(gTitle(p))}</h2><div class="pr${p.desc && !p._grp ? ' dp' : ''}">${listPrice(p)}</div>
+  <div class="ov"><h2>${esc(gTitle(p))}</h2>
     <button class="btn btn-w" data-open="${esc(p.id)}">Ver pieza</button></div></div>`).join('');
   $('#heroD').innerHTML = picks.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('');
   $('#hero').hidden = false;
